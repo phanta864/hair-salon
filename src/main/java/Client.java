@@ -18,5 +18,10 @@ public class Client {
     public Integer getAge(){
         return mAge;
     }
-
+    public String getmFirstAppearance(){
+        return mFirstAppearance;
+    }
+    public String getNeighbourhood(){
+        return mNeighbourhood;
+    }
 }
