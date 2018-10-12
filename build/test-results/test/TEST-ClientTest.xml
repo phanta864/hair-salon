@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ClientTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-10-12T09:03:12" hostname="ephantus-Latitude-E5440" time="0.002">
+<testsuite name="ClientTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-10-12T09:13:34" hostname="ephantus-Latitude-E5440" time="0.002">
   <properties/>
-  <testcase name="clientReturnsAnInstanceOfObject_object" classname="ClientTest" time="0.001"/>
+  <testcase name="getFirstApperanceofClient_string" classname="ClientTest" time="0.001"/>
+  <testcase name="clientReturnsAnInstanceOfObject_object" classname="ClientTest" time="0.0"/>
   <testcase name="getAgeOfClient_int" classname="ClientTest" time="0.0"/>
   <testcase name="getNameOfClient_String" classname="ClientTest" time="0.0"/>
+  <testcase name="getneigghbourhood_string" classname="ClientTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

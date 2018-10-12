@@ -19,4 +19,14 @@ public class ClientTest {
         Integer age = 20;
         assertEquals(age, client.getAge());
     }
+    @Test
+    public void getFirstApperanceofClient_string(){
+        Client client = new Client("shiro", 20, "may", "koma");
+        assertEquals("may", client.getFirstAppearance());
+    }
+    @Test
+    public void getneigghbourhood_string(){
+        Client client = new Client("shiro", 20, "may", "koma");
+        assertEquals("koma", client.getNeighbourhood());
+    }
 }
