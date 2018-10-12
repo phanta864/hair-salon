@@ -29,4 +29,12 @@ public class ClientTest {
         Client client = new Client("shiro", 20, "may", "koma");
         assertEquals("koma", client.getNeighbourhood());
     }
+    @Test
+    public void returnsClientsAsInstanceOfClientClass_Client(){
+        Client client = new Client("shiro", 20, "may", "koma");
+        Client client2 = new Client("epha", 20, "may", "koma");
+
+        assertTrue(Client.all().contains(client));
+        assertTrue(Client.all().contains(client2));
+    }
 }
