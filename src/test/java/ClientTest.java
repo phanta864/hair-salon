@@ -13,4 +13,10 @@ public class ClientTest {
         Client client = new Client("shiro", 20, "may", "koma");
         assertEquals("shiro", client.getName());
     }
+    @Test
+    public void getAgeOfClient_int(){
+        Client client = new Client("shiro", 20, "may", "koma");
+        Integer age = 20;
+        assertEquals(age, client.getAge());
+    }
 }

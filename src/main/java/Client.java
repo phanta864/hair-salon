@@ -1,11 +1,11 @@
 public class Client {
     private String mName;
-    private int mAge;
+    private Integer mAge;
     private String mFirstAppearance;
     private String mNeighbourhood;
 
 
-    public Client(String name, int age, String firstAppearance, String neighbourhood){
+    public Client(String name, Integer age, String firstAppearance, String neighbourhood){
         mName =name;
         mAge = age;
         mFirstAppearance = firstAppearance;
@@ -15,4 +15,8 @@ public class Client {
     public String getName(){
         return mName;
     }
+    public Integer getAge(){
+        return mAge;
+    }
+
 }
