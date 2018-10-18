@@ -1,45 +1,114 @@
-import java.util.ArrayList;
 import java.util.List;
 
+import org.sql2o.*;
+
 public class Client {
-    private String mName;
-    private Integer mAge;
-    private String mFirstAppearance;
-    private String mNeighbourhood;
-    public int mId;
-    private static List<Client> instances = new ArrayList<Client>();
 
-    public Client(String name, Integer age, String firstAppearance, String neighbourhood){
-        mName =name;
-        mAge = age;
-        mFirstAppearance = firstAppearance;
-        mNeighbourhood = neighbourhood;
-        instances.add(this);
-        mId = instances.size();
-    }
+    private int id;
+    private String name;
+    private Integer age;
+    private String firstappearance;
+    private String neighbourhood;
+    private int stylistId;
 
-    public static List<Client> all(){
-        return instances;
+    public Client(String name, Integer age, String firstappearance, String neighbourhood, int stylistId){
+        this.name =name;
+        this.age = age;
+        this.firstappearance = firstappearance;
+        this.neighbourhood = neighbourhood;
+        this.stylistId = stylistId;
     }
 
     public int getId(){
-        return mId;
+
+        return id;
     }
 
-    public static Client find(int id){
-        return instances.get(id - 1);
+    public String getClientName(){
+
+        return name;
+    }
+    public Integer getClientAge(){
+
+        return age;
     }
 
-    public String getName(){
-        return mName;
+    public int getStylistId() {
+        return stylistId;
     }
-    public Integer getAge(){
-        return mAge;
+
+    public String getClientFirstappearerance(){
+        return firstappearance;
     }
-    public String getFirstAppearance(){
-        return mFirstAppearance;
+
+    public String getClientNeighbourhood(){
+        return neighbourhood;
     }
-    public String getNeighbourhood(){
-        return mNeighbourhood;
+
+
+    public static List<Client> all() {
+        String sql = "SELECT id, name, age, firstappearance, neighbourhood FROM clients";
+        try(Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Client.class);
+        }
+    }
+
+    public static Client find(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM clients where id=:id";
+            Client client = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Client.class);
+            return client;
+        }
+    }
+
+    public void save(){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "INSERT INTO clients(name, age, firstappearance, neighbourhood) VALUES (:name, :age, :firstappearance, :neighbourhood)";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("name", this.name)
+                    .addParameter("age", this.age)
+                    .addParameter("firstappearance", this.firstappearance)
+                    .addParameter("neighbourhood", this.neighbourhood)
+                    .executeUpdate()
+                    .getKey();
+        }
+    }
+
+    public void update(String name, String style){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE clients SET (name, age, firstappearance, neighbourhood) = (:name, :age, :firstappearance, :neighbourhood) WHERE id = :id;";
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("age", age)
+                    .addParameter("age", firstappearance)
+                    .addParameter("age", neighbourhood)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
+
+    public void deleteClient(){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "DELETE FROM clients WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
+
+    @Override
+    public boolean equals(Object otherClient){
+        if(!(otherClient instanceof Client)){
+            return false;
+        }
+        else{
+            Client newClient = (Client) otherClient;
+
+            return this.getClientName().equals(newClient.getClientName()) &&
+                    this.getId() == newClient.getId();
+//                    && this.getStylistId() == newClient.getStylistId();
+        }
     }
 }

@@ -1,2 +1,2 @@
-public class StylistTest {
+public class StylistsTest {
 }

@@ -1,12 +1,31 @@
 import static  org.junit.Assert.*;
 import  org.junit.*;
+import org.sql2o.*;
 
 
 public class ClientTest {
+    @Before
+    public void setup() {
+        public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon", "ephantus","  ",
+    }
+    @After
+    public void tearDown() {
+        try(connection con = DB.sql2o.open()) {
+            string sql = "DELETE FROM client*;";
+            con.createQuery(sql).executeUpdates();
+        }
+    }
     @Test
     public void clientReturnsAnInstanceOfObject_object(){
         Client client = new Client("shiro", 20, "may", "koma");
         assertTrue(client instanceof Object);
+    }
+    @Test
+    public void equals_returnsTrueIfDescriptionsAretheSame() {
+        Client firstClient = new Client("fatah");
+        client SecondClient = new client("fatah");
+        assertTrue(firstTask.equals(secondTask));
+
     }
     @Test
     public void getNameOfClient_String(){
