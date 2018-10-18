@@ -1,0 +1,16 @@
+<h1>All Clients:</h1>
+
+  #foreach($client in $clients)
+     $client.getFname()
+     <h5>Client Age: $client.getAge()</h5>
+    <h5>Client FirstAppearance: $client.getfirstAppearance()</h5>
+    <p>Client Neighbourhood: $client.getneighbourhood()</p>
+
+     <a href="/client_update/$client.getId()" class="btn btn-info" id="delete-client">Update this client</a>
+
+    <form action="/clients/$client.getId()" method="post">
+    <button type="submit" class="btn btn-danger" id="delete-client">Delete this client</button>
+</form>
+
+<a href="/client/new" class="btn btn-primary" >Add a new client</a>
+<a href="/stylists" class="btn btn-primary">View Stylists</a>
