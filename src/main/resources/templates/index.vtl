@@ -64,3 +64,14 @@
           <label for="neighbourhood">Neighbourhood</label>
           <input id="neighbourhood" class="form-control" name="neighbourhood" type="text">
           </div>
+        <select id=':id' name=':id' type='text'>
+          #foreach($stylist in $stylists)
+          <option value="$stylist.getId()">$stylist.getFirstname()</option>
+          #end
+        </select>
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
