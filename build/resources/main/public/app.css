@@ -1,0 +1,27 @@
+body{
+  background: url(/img/a.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ font-family: 'McLaren', cursive;
+}
+.card{
+    padding:20px;
+}
+.container{
+  padding: 10px;
+  margin-top: 2em;
+}
+.card{
+  background-color: rgba(236, 240, 241,0.4)
+}
+.cardStylist{
+  background-color: rgba(236, 240, 241);
+  width: 300px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.displayName{
+  font-weight: bold;
+}

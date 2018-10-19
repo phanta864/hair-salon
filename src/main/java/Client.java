@@ -42,6 +42,7 @@ public class Client {
     }
 
     public String getClientNeighbourhood(){
+
         return neighbourhood;
     }
 
@@ -65,12 +66,13 @@ public class Client {
 
     public void save(){
         try(Connection con = DB.sql2o.open()){
-            String sql = "INSERT INTO clients(name, age, firstappearance, neighbourhood) VALUES (:name, :age, :firstappearance, :neighbourhood)";
+            String sql = "INSERT INTO clients(name, age, firstappearance, neighbourhood, stylistId) VALUES (:name, :age, :firstappearance, :neighbourhood,:stylistId)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .addParameter("age", this.age)
                     .addParameter("firstappearance", this.firstappearance)
                     .addParameter("neighbourhood", this.neighbourhood)
+                    .addParameter("stylistId", this.stylistId)
                     .executeUpdate()
                     .getKey();
         }
@@ -107,8 +109,8 @@ public class Client {
             Client newClient = (Client) otherClient;
 
             return this.getClientName().equals(newClient.getClientName()) &&
-                    this.getId() == newClient.getId();
-//                    && this.getStylistId() == newClient.getStylistId();
+                    this.getId() == newClient.getId()
+                    && this.getStylistId() == newClient.getStylistId();
         }
     }
 }

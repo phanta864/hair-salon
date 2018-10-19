@@ -5,6 +5,7 @@
       <form action="/stylist" method="post">
         <h2>Add new stylist</h2>
 
+          <div class="form-group">
         <label for="firstname">First name</label>
           <input id="firstname" class="form-control" name="firstname" type="text">
           </div>
@@ -38,39 +39,3 @@
         </form>
         </div>
        </div>
-    <div class="col-md-6">
-    <div class="card">
-      <form action="/client" method="post">
-        <h2>Add a new Client</h2>
-        <div class="form-group">
-          <label for="name">Client Name</label>
-          <input type="text" id="name" name="name">
-        </div>
-
-
-        <label for="age">Age</label>
-          <input id="age" class="form-control" name="age" type="text">
-          </div>
-
-        <div class="form-group">
-          <label for="firstappearance">firstAppearance</label>
-          <input id="firstappearance" class="form-control" name="firstappearance" type="text">
-          </div>
-
-
-        <div class="form-group">
-          <label for="neighbourhood">Neighbourhood</label>
-          <input id="neighbourhood" class="form-control" name="neighbourhood" type="text">
-          </div>
-
-        <label for=":id" class="btn btn-success">View stylist</label>
-        <select id=':id' name=':id' type='text'>
-          #foreach($stylist in $stylists)
-          <option value="$stylist.getId()">$stylist.getFirstname()</option>
-          #end
-        </select>
-        <button type="submit" class="btn btn-success">Add Client</button>
-      </form>
-    </div>
-  </div>
-</div>
