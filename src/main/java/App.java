@@ -84,13 +84,33 @@ public class App {
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
-        //Post method for deleting client
+        //deleting client
         post("/client/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             Client client = Client.find(Integer.parseInt(request.params(":id")));
             client.deleteClient();
             model.put("stylist", client);
             model.put("template", "templates/viewClients.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        post("/client/:client_id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Client client = Client.find(Integer.parseInt(request.params(":client_id")));
+            String name = request.queryParams("name");
+            Integer age = Integer.parseInt(request.queryParams("age"));
+            String firstappearance = request.queryParams("firstappearance");
+            String neighbourhood = request.queryParams("neighbourhood");
+            client.update(name, age, firstappearance, neighbourhood);
+            model.put("template", "templates/index.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        get("/client/:client_id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Client client = Client.find(Integer.parseInt(request.params(":client_id")));
+            model.put("client", client);
+            model.put("template", "templates/update_client.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 

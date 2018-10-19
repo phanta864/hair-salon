@@ -37,7 +37,7 @@ public class Client {
         return stylistId;
     }
 
-    public String getClientFirstappearerance(){
+    public String getClientFirstappearance(){
         return firstappearance;
     }
 
@@ -78,14 +78,14 @@ public class Client {
         }
     }
 
-    public void update(String name, String style){
+    public void update(String name, Integer age, String firstappearance,String neighbourhood){
         try(Connection con = DB.sql2o.open()){
             String sql = "UPDATE clients SET (name, age, firstappearance, neighbourhood) = (:name, :age, :firstappearance, :neighbourhood) WHERE id = :id;";
             con.createQuery(sql)
                     .addParameter("name", name)
                     .addParameter("age", age)
-                    .addParameter("age", firstappearance)
-                    .addParameter("age", neighbourhood)
+                    .addParameter("firstappearance", firstappearance)
+                    .addParameter("neighbourhood", neighbourhood)
                     .addParameter("id", id)
                     .executeUpdate();
         }

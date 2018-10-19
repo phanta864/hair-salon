@@ -1,15 +1,13 @@
-<div>
 #foreach($client in $clients)
-  <div class="styleCard">
+  <div class="card clientCard">
     <p class="header2">CLIENT NAME:</p>
     <p>$client.getClientName()</p>
-    <p class="header2">CLIENT STYLE:</p>
-    <p>$client.getClientStyle()</p>
+    <p class="header2">CLIENT FIRST APPEARANCE:</p>
+    <p>$client.getClientFirstappearance()</p>
     <a href="/client/$client.getId()/update"><button>Update client</button></a><br>
-    <form action="/client/$client.getId()" method="post"><br>
-      <a type="submit" id="delete-client">Delete client</a>
+    <form action="/client/$client.getId()" method="post">
+        <button type="submit" id="delete-client">delete </button>
     </form>
   </div>
   #end
-</div>
 <a href="/clients/new"><button>Add new client</button></a>

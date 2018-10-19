@@ -1,6 +1,11 @@
-<form action="/client/$client.getId()" method="post">
-  <label for="clientName">Name</label>
-  <input id="clientName" name="clientName" type="text" placeholder="$client.getClientName()">
-  <label for="clientStyle">Style</label>
-  <input id="clientStyle" name="clientStyle" type="text" placeholder="$client.getClientStyle()">
+<form action="/client/$client.getId()/update" method="post">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" placeholder="$client.getClientName()">
+      <label for="age">Age</label>
+      <input id="age" name="age" type="text" placeholder="$client.getClientAge()">
+      <label for="firstappearance">First Appearance</label>
+      <input id="firstappearance" name="firstappearance" type="text" placeholder="$client.getClientFirstappearance()">
+      <label for="neighbourhood">First Appearance</label>
+      <input id="neighbourhood" name="neighbourhood" type="text" placeholder="$client.getClientNeighbourhood()">
+  <button class="btn btn-info" type="submit"></button>
 </form>
