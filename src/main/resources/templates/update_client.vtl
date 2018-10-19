@@ -1,11 +1,24 @@
+    <div class="card updatecard">
 <form action="/client/$client.getId()/update" method="post">
+    <div class="form-group">
       <label for="name">Name</label>
-      <input id="name" name="name" type="text" placeholder="$client.getClientName()">
+      <input class="form-control" id="name" name="name" type="text" placeholder="$client.getClientName()">
+      </div>
+
+       <div class="form-group">
       <label for="age">Age</label>
-      <input id="age" name="age" type="text" placeholder="$client.getClientAge()">
+      <input class="form-control"id="age" name="age" type="text" placeholder="$client.getClientAge()">
+      </div>
+
+       <div class="form-group">
       <label for="firstappearance">First Appearance</label>
-      <input id="firstappearance" name="firstappearance" type="text" placeholder="$client.getClientFirstappearance()">
+      <input class="form-control" id="firstappearance" name="firstappearance" type="text" placeholder="$client.getClientFirstappearance()">
+      </div>
+
+       <div class="form-group">
       <label for="neighbourhood">First Appearance</label>
-      <input id="neighbourhood" name="neighbourhood" type="text" placeholder="$client.getClientNeighbourhood()">
-  <button class="btn btn-info" type="submit"></button>
+      <input class="form-control" id="neighbourhood" name="neighbourhood" type="text" placeholder="$client.getClientNeighbourhood()">
+      </div>
+  <button class="btn btn-info" type="submit">Update</button>
 </form>
+</div>

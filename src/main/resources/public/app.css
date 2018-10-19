@@ -10,6 +10,12 @@ body{
     padding:20px;
     background-color: rgba(236, 240, 241,0.4);
 }
+.updatecard{
+     padding:20px;
+     background-color: rgba(236, 240, 241,0.4);
+     width:400px;
+     margin:20px;
+}
 .clientCard{
     padding:20px;
     margin:20px;
