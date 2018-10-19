@@ -7,7 +7,7 @@ apply plugin: 'application'
 group 'com.ephantus'
 archivesBaseName = "salon"
 version = '1.0'
-applicationName = "salon"
+applicationName = "hairsalon"
 mainClassName = "App"
 
 sourceCompatibility = 1.8
@@ -24,3 +24,5 @@ dependencies {
     compile 'com.sparkjava:spark-template-velocity:2.5.5'
     compile 'com.sparkjava:spark-debug-tools:0.5'
 }
+defaultTasks = ['clean']
+task stage(dependsOn: ['clean', 'installApp'])
