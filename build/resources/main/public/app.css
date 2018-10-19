@@ -6,6 +6,10 @@ body{
   background-size: cover;
  font-family: 'McLaren', cursive;
 }
+.indexcard{
+    padding:20px;
+    background-color: rgba(236, 240, 241,0.4);
+}
 .clientCard{
     padding:20px;
     margin:20px;
